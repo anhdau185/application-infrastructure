@@ -1,3 +1,13 @@
+# Block all non-available requests, e.g. ones via server public IP address
+server {
+    listen 80 default_server;
+    listen [::]:80 default_server;
+
+    server_name "";
+
+    return 444;
+}
+
 # Redirect all HTTP traffic to non-www HTTPS
 server {
     listen 80;
