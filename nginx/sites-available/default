@@ -1,0 +1,42 @@
+# Redirect all HTTP traffic to non-www HTTPS
+server {
+    listen 80;
+    listen [::]:80;
+
+    server_name thecodinglad.com www.thecodinglad.com;
+
+    return 301 https://thecodinglad.com$request_uri;
+}
+
+# Redirect WWW HTTPS traffic to non-WWW HTTPS
+server {
+    listen 443 ssl;
+    listen [::]:443 ssl;
+    ssl_certificate /etc/letsencrypt/live/thecodinglad.com/fullchain.pem;
+    ssl_certificate_key /etc/letsencrypt/live/thecodinglad.com/privkey.pem;
+    include /etc/letsencrypt/options-ssl-nginx.conf;
+    ssl_dhparam /etc/letsencrypt/ssl-dhparams.pem;
+
+    server_name www.thecodinglad.com;
+
+    return 301 https://thecodinglad.com$request_uri;
+}
+
+# Main server block
+server {
+    listen 443 ssl;
+    listen [::]:443 ssl;
+    ssl_certificate /etc/letsencrypt/live/thecodinglad.com/fullchain.pem;
+    ssl_certificate_key /etc/letsencrypt/live/thecodinglad.com/privkey.pem;
+    include /etc/letsencrypt/options-ssl-nginx.conf;
+    ssl_dhparam /etc/letsencrypt/ssl-dhparams.pem;
+
+    root /var/www/html;
+    index index.html;
+
+    server_name thecodinglad.com;
+
+    location / {
+        try_files $uri $uri/ =404;
+    }
+}
