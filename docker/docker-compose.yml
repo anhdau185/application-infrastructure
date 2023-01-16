@@ -28,19 +28,19 @@ services: # configurations for every containerized service are listed here
       - db_data:/var/lib/postgresql/data
 
   # pgadmin: # pgadmin4 for administering all databases
-  # container_name: pgadmin
-  # image: dpage/pgadmin4:latest
-  # networks:
-  #   - common_network
-  # restart: always
-  # ports:
-  #   - "${PGADMIN_PORT}:${PGADMIN_LISTEN_PORT}"
-  # environment:
-  #   PGADMIN_DEFAULT_EMAIL: ${PGADMIN_DEFAULT_EMAIL}
-  #   PGADMIN_DEFAULT_PASSWORD: ${PGADMIN_DEFAULT_PASSWORD}
-  #   PGADMIN_LISTEN_PORT: ${PGADMIN_LISTEN_PORT}
-  # volumes:
-  #   - pgadmin_data:/var/lib/pgadmin
+    # container_name: pgadmin
+    # image: dpage/pgadmin4:latest
+    # networks:
+    #   - common_network
+    # restart: always
+    # ports:
+    #   - "${PGADMIN_PORT}:${PGADMIN_LISTEN_PORT}"
+    # environment:
+    #   PGADMIN_DEFAULT_EMAIL: ${PGADMIN_DEFAULT_EMAIL}
+    #   PGADMIN_DEFAULT_PASSWORD: ${PGADMIN_DEFAULT_PASSWORD}
+    #   PGADMIN_LISTEN_PORT: ${PGADMIN_LISTEN_PORT}
+    # volumes:
+    #   - pgadmin_data:/var/lib/pgadmin
 
   auth: # auth-service
     container_name: auth
