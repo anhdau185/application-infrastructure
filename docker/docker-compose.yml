@@ -1,21 +1,17 @@
 version: "3.9"
 
-# a common network within which every container will be operating
-networks:
+networks: # a common network within which every container will be operating
   common_network:
     driver: bridge
 
-# data volumes for containers
-volumes:
+volumes: # data volumes for containers
   db_data:
     driver: local
   pgadmin_data:
     driver: local
 
-# configurations for every containerized service are listed here
-services:
-  # a common database server
-  db:
+services: # configurations for every containerized service are listed here
+  db: # a common database server
     container_name: db
     image: postgres:13-alpine
     networks:
@@ -31,24 +27,22 @@ services:
     volumes:
       - db_data:/var/lib/postgresql/data
 
-  # pgadmin4 for administering all databases
-  pgadmin:
-    container_name: pgadmin
-    image: dpage/pgadmin4:latest
-    networks:
-      - common_network
-    restart: always
-    ports:
-      - "${PGADMIN_PORT}:${PGADMIN_LISTEN_PORT}"
-    environment:
-      PGADMIN_DEFAULT_EMAIL: ${PGADMIN_DEFAULT_EMAIL}
-      PGADMIN_DEFAULT_PASSWORD: ${PGADMIN_DEFAULT_PASSWORD}
-      PGADMIN_LISTEN_PORT: ${PGADMIN_LISTEN_PORT}
-    volumes:
-      - pgadmin_data:/var/lib/pgadmin
+  # pgadmin: # pgadmin4 for administering all databases
+  # container_name: pgadmin
+  # image: dpage/pgadmin4:latest
+  # networks:
+  #   - common_network
+  # restart: always
+  # ports:
+  #   - "${PGADMIN_PORT}:${PGADMIN_LISTEN_PORT}"
+  # environment:
+  #   PGADMIN_DEFAULT_EMAIL: ${PGADMIN_DEFAULT_EMAIL}
+  #   PGADMIN_DEFAULT_PASSWORD: ${PGADMIN_DEFAULT_PASSWORD}
+  #   PGADMIN_LISTEN_PORT: ${PGADMIN_LISTEN_PORT}
+  # volumes:
+  #   - pgadmin_data:/var/lib/pgadmin
 
-  # auth-service
-  auth:
+  auth: # auth-service
     container_name: auth
     image: anhdau185/auth-service:latest
     networks:

@@ -2,7 +2,7 @@
 server {
     listen 80;
 
-    server_name auth.thecodinglad.com;
+    server_name dish.thecodinglad.com;
 
     return 301 https://$host$request_uri;
 }
@@ -15,9 +15,12 @@ server {
     include /etc/letsencrypt/options-ssl-nginx.conf;
     ssl_dhparam /etc/letsencrypt/ssl-dhparams.pem;
 
-    server_name auth.thecodinglad.com;
+    root /var/www/dish.thecodinglad.com/html;
+    index index.html;
 
-    location / {
-        proxy_pass http://127.0.0.1:3000/;
+    server_name dish.thecodinglad.com;
+
+    location = / {
+        try_files $uri $uri/ =404;
     }
 }

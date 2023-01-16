@@ -1,7 +1,7 @@
 # Block all non-available requests, e.g. ones via server public IP address
 server {
     listen 80 default_server;
-    listen [::]:80 default_server;
+    listen 443;
 
     server_name "";
 
@@ -11,7 +11,6 @@ server {
 # Redirect all HTTP traffic to non-www HTTPS
 server {
     listen 80;
-    listen [::]:80;
 
     server_name thecodinglad.com www.thecodinglad.com;
 
@@ -21,7 +20,6 @@ server {
 # Redirect WWW HTTPS traffic to non-WWW HTTPS
 server {
     listen 443 ssl;
-    listen [::]:443 ssl;
     ssl_certificate /etc/letsencrypt/live/thecodinglad.com/fullchain.pem;
     ssl_certificate_key /etc/letsencrypt/live/thecodinglad.com/privkey.pem;
     include /etc/letsencrypt/options-ssl-nginx.conf;
@@ -35,7 +33,6 @@ server {
 # Main server block
 server {
     listen 443 ssl;
-    listen [::]:443 ssl;
     ssl_certificate /etc/letsencrypt/live/thecodinglad.com/fullchain.pem;
     ssl_certificate_key /etc/letsencrypt/live/thecodinglad.com/privkey.pem;
     include /etc/letsencrypt/options-ssl-nginx.conf;
