@@ -1,6 +1,6 @@
 # Auth Service Workflows
 
-This doc presents complete, straightforward, step-by-step, easy-to-follow workflows for developing, deploying, monitoring the Auth Service.
+This doc presents complete, straightforward, step-by-step, easy-to-follow workflows for developing, deploying, and monitoring the Auth Service.
 
 ## Local Development
 
@@ -16,7 +16,7 @@ This workflow is very simple and straightforward:
 
 ## Production Deployment
 
-Using Docker containers is way to go when deploying and running a service in a production environment because of the portability and reliability containers bring.
+Using Docker containers is the way to go when deploying and running a service in a production environment because of the portability and reliability containers bring.
 
 ### On the local machine
 
@@ -81,6 +81,10 @@ docker compose down
 5. Pull the latest images
 
 ```sh
+# postgres image
+docker pull postgres:13-alpine
+
+# backend app image
 docker pull anhdau185/auth-service:latest
 ```
 
