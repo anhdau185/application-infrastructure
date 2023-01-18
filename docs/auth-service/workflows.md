@@ -74,11 +74,11 @@ docker push anhdau185/auth-service:latest
 docker compose down
 ```
 
-3. Copy `.env` and `docker-compose.yml` files from [application-infrastructure/docker](https://github.com/anhdau185/application-infrastructure/tree/main/docker) to this folder on the server
+4. Copy `.env` and `docker-compose.yml` files from [application-infrastructure/docker](https://github.com/anhdau185/application-infrastructure/tree/main/docker) to this folder on the server
 
-4. Fill out all the empty fields in the `.env` file above with your own values
+5. Fill out all the empty fields in the `.env` file above with your own values
 
-5. Pull the latest images
+6. Pull the latest images
 
 ```sh
 # postgres image
@@ -88,13 +88,13 @@ docker pull postgres:13-alpine
 docker pull anhdau185/auth-service:latest
 ```
 
-6. Start all services
+7. Start all services
 
 ```sh
 docker compose up --detach
 ```
 
-7. Schema migrations
+8. Schema migrations
 
 If you are running the service for the first time or anytime the database schema is changed (which leads to a generation of a new migration file), you will need to run schema migrations before the service becomes actually usable.
 
@@ -104,7 +104,7 @@ To do this with your backend app running inside a Docker container, run the comm
 docker exec app yarn migration:run
 ```
 
-8. Final health-check: Check if the Nginx server is active and all containerized services are up
+9. Final health-check: Check if the Nginx server is active and all containerized services are up
 
 ```sh
 sudo systemctl status nginx
