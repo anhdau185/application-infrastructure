@@ -9,7 +9,7 @@ It is recommended that you develop the service using the "local" method, whose s
 This workflow is very simple and straightforward:
 
 - Make code changes
-- Mave and wait for watch mode to automatically reload the development server
+- Save and wait for watch mode to automatically reload the development server
 - Checkout to a new branch, commit, and push to remote
 - Create a pull request to `master`
 - Review the changes and then merge the pull request
