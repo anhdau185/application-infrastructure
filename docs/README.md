@@ -1,3 +1,3 @@
 # General System Documentation
 
-TBD.
+A place for all kinds of documentation about the system and the infrastructure.
