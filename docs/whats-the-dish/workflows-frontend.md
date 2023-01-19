@@ -1,6 +1,6 @@
 # What's The Dish (WTD) Frontend Workflows
 
-This doc presents complete, straightforward, step-by-step, easy-to-follow workflows for developing and deploying the WTD web app.
+This doc presents simple, straightforward, easy-to-follow workflows for developing and deploying the WTD web app.
 
 ## Local Development
 
@@ -14,10 +14,22 @@ This web app was bootstrapped from [Create React App](https://create-react-app.d
 
 ## Production Deployment
 
-### On the local machine
+Deployment of a React app is just as simple.
 
-TBD.
+1. Build the app
 
-### On the cloud server
+Create a production build of the app:
 
-TBD.
+```sh
+yarn build
+```
+
+This will produce a `build` folder in the project's root directory.
+
+2. Upload build files to the server
+
+```sh
+scp -r ./build/* <username>@<server_ip_address>:/var/www/dish.thecodinglad.com/html
+```
+
+When the command above completes, deployment is finished. Since a React app is built of static files that only need a browser, you don’t need any further server-side configurations. Open your web browser and navigate to your domain name, you will find your React app there.
