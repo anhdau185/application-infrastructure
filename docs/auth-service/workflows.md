@@ -115,7 +115,7 @@ If you are running the service for the first time or anytime the database schema
 To do this with your backend app running inside a Docker container, run the command:
 
 ```sh
-docker exec app yarn migration:run
+docker exec auth yarn migration:run
 ```
 
 10. Final health-check: Check if the Nginx server is active and all containerized services are up
