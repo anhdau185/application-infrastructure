@@ -15,7 +15,7 @@ This folder contains crucial Nginx configurations for sites/applications hosted 
 - https://dish.thecodinglad.com: What's The Dish - A web app to set aside your favorite dishes and recipes.
 - https://auth.thecodinglad.com: Centralized, dedicated authentication server for all consumer apps and microservices.
 
-## Steps to add a subdomain to Nginx server
+## Steps to Add a Subdomain to the Nginx Server
 
 Make sure you own a domain name (e.g. _example.com_) and that domain name has been added to DigitalOcean beforehand.
 
@@ -79,6 +79,6 @@ sudo systemctl restart nginx
 
 Nginx should now be serving your new subdomain.
 
-## Read more
+## Read More
 
 Check out this helpful guide from the DigitalOcean Community: https://www.digitalocean.com/community/tutorials/how-to-set-up-nginx-server-blocks-virtual-hosts-on-ubuntu-16-04
