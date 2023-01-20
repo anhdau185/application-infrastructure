@@ -34,6 +34,6 @@ scp -r ./build/* <username>@<server_ip_address>:/var/www/dish.thecodinglad.com/h
 
 When the command above completes, deployment is finished. Since a React app is built of static files that only need a browser, you don’t need any further server-side configurations. Open your web browser and navigate to your domain name, you will find your React app there.
 
-## Read more
+## Read More
 
 Check out this helpful article from DigitalOcean Community: https://www.digitalocean.com/community/tutorials/how-to-deploy-a-react-application-with-nginx-on-ubuntu-20-04
