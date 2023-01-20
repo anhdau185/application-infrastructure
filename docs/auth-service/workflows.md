@@ -18,7 +18,7 @@ This workflow is very simple and straightforward:
 
 Using Docker containers is the way to go when deploying and running a service in a production environment because of the portability and reliability containers bring.
 
-### On the local machine
+### On the Local Machine
 
 1. Pull the latest code from `master` if necessary
 
@@ -62,7 +62,7 @@ Run the containers with `docker compose up --detach` and then check if things wo
 docker push anhdau185/auth-service:latest
 ```
 
-### On the cloud server
+### On the Cloud Server
 
 1. SSH to the server with `ssh <username>@<server_ip_address>`
 
@@ -113,7 +113,7 @@ docker ps
 
 If everything are OK, the service has gone live and are ready to serve!
 
-## Monitoring the production server and operational services
+## Monitoring the Production Server and Operational Services
 
 ### Server Power & Resources
 
