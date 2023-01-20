@@ -78,7 +78,21 @@ docker compose down
 
 5. Fill out all the empty fields in the `.env` file above with your own values
 
-6. Pull the latest images
+6. Remove the existing Docker image on the server (if there's any)
+
+Run this command and get the image ID of `anhdau185/auth-service:latest`:
+
+```sh
+docker images
+```
+
+and then remove that image with the ID you obtained:
+
+```sh
+docker rmi <image_ID>
+```
+
+7. Pull the latest images
 
 ```sh
 # postgres image
@@ -88,13 +102,13 @@ docker pull postgres:13-alpine
 docker pull anhdau185/auth-service:latest
 ```
 
-7. Start all services
+8. Start all services
 
 ```sh
 docker compose up --detach
 ```
 
-8. Schema migrations
+9. Schema migrations
 
 If you are running the service for the first time or anytime the database schema is changed (which leads to a generation of a new migration file), you will need to run schema migrations before the service becomes actually usable.
 
@@ -104,7 +118,7 @@ To do this with your backend app running inside a Docker container, run the comm
 docker exec app yarn migration:run
 ```
 
-9. Final health-check: Check if the Nginx server is active and all containerized services are up
+10. Final health-check: Check if the Nginx server is active and all containerized services are up
 
 ```sh
 sudo systemctl status nginx
