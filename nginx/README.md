@@ -9,7 +9,7 @@ This folder contains crucial Nginx configurations for sites/applications hosted 
 - `nginx/sites-available/*` corresponds to `/etc/nginx/sites-available/*` on the cloud Linux server.
 - `nginx/static-assets/*` corresponds to `/var/www/*` on the cloud Linux server.
 
-## Domains and subdomains
+## Domains and Subdomains
 
 - https://thecodinglad.com: Personal website and blog by Anh Dau
 - https://dish.thecodinglad.com: What's The Dish - A web app to set aside your favorite dishes and recipes.
