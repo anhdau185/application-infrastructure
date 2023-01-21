@@ -8,6 +8,7 @@ It is recommended that you develop the service using the "local" method, whose s
 
 This workflow is very simple and straightforward:
 
+- Bring up the development environment by following this guide: [Getting Started](https://github.com/anhdau185/auth-service#getting-started)
 - Make code changes
 - Save and wait for watch mode to automatically reload the development server
 - Checkout to a new branch, commit, and push to remote
@@ -125,7 +126,7 @@ sudo systemctl status nginx
 docker ps
 ```
 
-If everything are OK, the service has gone live and are ready to serve!
+If everything are OK, the service has gone live and is ready to serve!
 
 ## Monitoring the Production Server and Operational Services
 
