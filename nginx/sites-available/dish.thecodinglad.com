@@ -20,7 +20,13 @@ server {
 
     server_name dish.thecodinglad.com;
 
+    # Dish homepage
     location = / {
         try_files $uri $uri/ =404;
+    }
+
+    # Dish API
+    location /api/ {
+        proxy_pass http://127.0.0.1:3001$request_uri;
     }
 }
