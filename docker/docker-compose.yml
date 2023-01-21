@@ -49,7 +49,20 @@ services: # configurations for every containerized service are listed here
       - common_network
     restart: always
     ports:
-      - "${AUTH_APIS_PORT}:${AUTH_APIS_PORT}"
+      - "${AUTH_API_PORT}:${AUTH_API_PORT}"
+    depends_on:
+      - db
+    links:
+      - db
+
+  dish: # dish-api
+    container_name: dish
+    image: registry.digitalocean.com/anhdau185/dish-api:latest
+    networks:
+      - common_network
+    restart: always
+    ports:
+      - "${DISH_API_PORT}:5000"
     depends_on:
       - db
     links:
