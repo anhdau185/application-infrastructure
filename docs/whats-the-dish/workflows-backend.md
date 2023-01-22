@@ -1,15 +1,15 @@
-# Auth Service Workflows
+# Dish API Workflows
 
-This doc presents complete, step-by-step, easy-to-follow workflows for developing, deploying, and monitoring the Auth Service.
+This doc presents complete, step-by-step, easy-to-follow workflows for developing, deploying, and monitoring the Dish API.
 
 ## Local Development
 
-It is recommended that you develop the service using the "local" method, whose setup guide is presented in the section [Getting Started](https://github.com/anhdau185/auth-service#getting-started), over the "Docker" way. This way you can benefit from hot loading, faster development time, and better development experience.
+It is recommended that you develop the service using the "local" method, whose setup guide is presented in the section [Getting Started](https://github.com/anhdau185/whats-the-dish-api#getting-started), over the "Docker" way. This way you can benefit from hot loading, faster development time, and better development experience.
 
 This workflow is very simple and straightforward:
 
 - Make code changes
-- Save and wait for watch mode to automatically reload the development server
+- Save and wait for the development server to reload
 - Checkout to a new branch, commit, and push to remote
 - Create a pull request to `master`
 - Review the changes and then merge the pull request
@@ -34,7 +34,7 @@ and fill out all the empty fields in it with your own values.
 
 3. Remove the existing Docker image to avoid a duplicate
 
-Run this command and get the image ID of `anhdau185/auth-service:latest`:
+Run this command and get the image ID of `registry.digitalocean.com/anhdau185/dish-api:latest`:
 
 ```sh
 docker images
@@ -48,10 +48,10 @@ docker rmi <image_ID>
 
 4. Build a new image
 
-Rebuild the image under the name `anhdau185/auth-service:latest`:
+Rebuild the image under the name `registry.digitalocean.com/anhdau185/dish-api:latest`:
 
 ```sh
-docker build --tag anhdau185/auth-service:latest .
+docker build --tag registry.digitalocean.com/anhdau185/dish-api:latest .
 ```
 
 Run the containers with `docker compose up --detach` and then check if things work as expected.
@@ -59,8 +59,10 @@ Run the containers with `docker compose up --detach` and then check if things wo
 5. Push the newly built image to your Docker registry, so that your production server can easily pull it from the Internet:
 
 ```sh
-docker push anhdau185/auth-service:latest
+docker push registry.digitalocean.com/anhdau185/dish-api:latest
 ```
+
+Note: You need authenticating before accessing a private Docker registry. See [this guide](https://github.com/anhdau185/application-infrastructure/tree/main/docker#accessing-digitalocean-private-docker-registry) on how to do this.
 
 ### On the Cloud Server
 
@@ -80,7 +82,7 @@ docker compose down
 
 6. Remove the existing Docker image on the server (if there's any)
 
-Run this command and get the image ID of `anhdau185/auth-service:latest`:
+Run this command and get the image ID of `registry.digitalocean.com/anhdau185/dish-api:latest`:
 
 ```sh
 docker images
@@ -99,7 +101,7 @@ docker rmi <image_ID>
 docker pull postgres:13-alpine
 
 # backend app image
-docker pull anhdau185/auth-service:latest
+docker pull registry.digitalocean.com/anhdau185/dish-api:latest
 ```
 
 8. Start all services
@@ -108,14 +110,30 @@ docker pull anhdau185/auth-service:latest
 docker compose up --detach
 ```
 
-9. Schema migrations
+9. Set up a database (for the first spin-up)
 
-If you are running the service for the first time or anytime the database schema is changed (which leads to a generation of a new migration file), you will need to run schema migrations before the service becomes actually usable.
-
-To do this with your backend app running inside a Docker container, run the command:
+Create a production database:
 
 ```sh
-docker exec auth yarn migration:run
+docker exec dish rails db:create RAILS_ENV=production
+```
+
+and run migrations:
+
+```sh
+docker exec dish rails db:migrate RAILS_ENV=production
+```
+
+or if you're setting up a brand new database, loading the `schema.rb` file would be another option:
+
+```sh
+docker exec dish rails db:schema:load RAILS_ENV=production
+```
+
+Finally, if you need some initial seed data, you can optionally run:
+
+```sh
+docker exec dish rails db:seed RAILS_ENV=production
 ```
 
 10. Final health-check: Check if the Nginx server is active and all containerized services are up
