@@ -81,4 +81,7 @@ Nginx should now be serving your new subdomain.
 
 ## Read More
 
-Check out this helpful guide from the DigitalOcean Community: https://www.digitalocean.com/community/tutorials/how-to-set-up-nginx-server-blocks-virtual-hosts-on-ubuntu-16-04
+Awesome guides from DigitalOcean Community:
+
+- https://www.digitalocean.com/community/tutorials/how-to-set-up-nginx-server-blocks-virtual-hosts-on-ubuntu-16-04
+- https://www.digitalocean.com/community/tutorials/nginx-location-directive
