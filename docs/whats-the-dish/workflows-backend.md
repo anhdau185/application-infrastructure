@@ -62,7 +62,7 @@ Run the containers with `docker compose up --detach` and then check if things wo
 docker push registry.digitalocean.com/anhdau185/dish-api:latest
 ```
 
-Note: You need authenticating before accessing a private Docker registry. See [this guide](https://github.com/anhdau185/application-infrastructure/tree/main/docker#accessing-digitalocean-private-docker-registry) on how to do this.
+Note: You need authenticating before accessing a private Docker registry. See [this quick guide](https://github.com/anhdau185/application-infrastructure/tree/main/docker#accessing-digitalocean-private-docker-registry) on how to do this.
 
 ### On the Cloud Server
 
