@@ -20,9 +20,9 @@ server {
 
     server_name dish.thecodinglad.com;
 
-    # Dish homepage
-    location = / {
-        try_files $uri $uri/ =404;
+    # Dish React app
+    location / {
+        try_files $uri /index.html;
     }
 
     # Dish API
