@@ -1,6 +1,6 @@
 # Auth Service Workflows
 
-This doc presents complete, step-by-step, easy-to-follow workflows for developing, deploying, and monitoring the Auth Service.
+This doc presents complete, step-by-step, easy-to-follow workflows to develop, deploy, and monitor the Auth Service.
 
 ## Local Development
 
