@@ -1,6 +1,6 @@
 # What's The Dish (WTD) Frontend Workflows
 
-This doc presents simple, straightforward, easy-to-follow workflows for developing and deploying the WTD web app.
+This doc presents simple, straightforward, easy-to-follow workflows to develop and deploy the WTD web app.
 
 ## Local Development
 
@@ -47,4 +47,4 @@ When the command above completes, deployment is finished. Since a React app is b
 
 ## Read More
 
-Check out this helpful article from DigitalOcean Community: https://www.digitalocean.com/community/tutorials/how-to-deploy-a-react-application-with-nginx-on-ubuntu-20-04
+Check out this helpful article from DigitalOcean Community for more in-depth configurations: https://www.digitalocean.com/community/tutorials/how-to-deploy-a-react-application-with-nginx-on-ubuntu-20-04
