@@ -1,6 +1,6 @@
 # Dish API Workflows
 
-This doc presents complete, step-by-step, easy-to-follow workflows for developing, deploying, and monitoring the Dish API.
+This doc presents complete, step-by-step, easy-to-follow workflows to develop, deploy, and monitor the Dish API.
 
 ## Local Development
 
