@@ -1,6 +1,6 @@
 # How To Use What's The Dish
 
-Below are simple demos of how to use the app.
+Below are quick & simple demos of how to use the app.
 
 ### Create a Category (a.k.a. Collection)
 
