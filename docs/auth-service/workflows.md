@@ -78,9 +78,19 @@ docker compose down
 
 5. Fill out all the empty fields in the `.env` file above with your own values
 
-6. Remove the existing Docker image on the server (if there's any)
+6. Pull the latest Docker images
 
-Run this command and get the image ID of `anhdau185/auth-service:latest`:
+```sh
+# postgres image
+docker pull postgres:13-alpine
+
+# backend app image
+docker pull anhdau185/auth-service:latest
+```
+
+7. Remove the old image
+
+Run this command and get the ID of the `anhdau185/auth-service` image that's **untagged**:
 
 ```sh
 docker images
@@ -90,16 +100,6 @@ and then remove that image with the ID you obtained:
 
 ```sh
 docker rmi <image_ID>
-```
-
-7. Pull the latest images
-
-```sh
-# postgres image
-docker pull postgres:13-alpine
-
-# backend app image
-docker pull anhdau185/auth-service:latest
 ```
 
 8. Start all services
